@@ -12,7 +12,8 @@ pipeline {
         stage('Build') {
             steps {
                 // Use Gradle to build your project
-                sh './gradlew clean build'
+                // sh './gradlew clean build'
+                bat 'gradlew clean build'
             }
         }
     }
