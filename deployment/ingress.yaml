@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: simple-springboot-api-ingress
+spec:
+  rules:
+    - host: localhost
+      http:
+        paths:
+          - path: /myapp # You can specify your desired path here
+            pathType: Prefix # Specify pathType as "Prefix" or "Exact"
+            backend:
+              service:
+                name: my-spring-boot-simple-app-service
+                port:
+                  number: 51740
+#  template:
+#    spec:
+#      hostNetwork: true

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-spring-boot-simple-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simplespringbootproject
+  template:
+    metadata:
+      labels:
+        app: simplespringbootproject
+    spec:
+      containers:
+        - image: simple-springboot-local-image
+          name: simple-springboot-local-image-container
+          imagePullPolicy: Never
+#          imagePullPolicy: IfNotPresent  # Change the pull policy
+          ports:
+            - containerPort: 9090
